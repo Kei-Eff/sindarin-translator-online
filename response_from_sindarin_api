@@ -1,0 +1,16 @@
+{
+  "contents": {
+    "text": "blah", 
+    "translated": "Blah", 
+    "translation": "sindarin"
+  }, 
+  "success": {
+    "total": 1
+  }
+}
+
+{
+    "error": {
+        "message": "Too many requests"
+    }
+}

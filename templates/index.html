@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
     <link href="../static/css/styles.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
-    <script>
-        console.log("hello");
-    </script>
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -22,20 +18,34 @@
             <h1>Sindarin Translator Online</h1>
         </div>
 
-        <div>
-            <form>
-                <label for="msg">Message to Translate:</label>
-                <textarea id="msg" name="text"></textarea>
-                <button type="submit">Translate</button>
-            </form>
-            <div>
-                <textarea>
-                        Lorem ipsum dolor sit amet
-                </textarea>
-            </div>
-        </div>
+        {% block content %}
 
-        </div>
+            {% if page_data.error_message | length > 0 %}
+            <div>
+                <p>
+                    {{ page_data.error_message }}
+                </p>
+            </div>
+            {% endif %}
+
+            <div>
+                <form action="/" method="POST">
+                    <label for="msg">Message to Translate:</label>
+                    <textarea id="msg" name="message">{{ page_data.message }}</textarea>
+                    <button type="submit">Translate</button>
+                </form>
+
+                {% if page_data.translated_message | length > 0 %}
+                <div>
+                    <p>
+                        {{ page_data.translated_message }}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+
+        {% endblock %}
+
     </main>
 </body>
 
