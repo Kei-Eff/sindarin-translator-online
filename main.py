@@ -18,11 +18,11 @@ def create_app():
             "text": request.form["message"]
         }
 
-        # response = requests.request("POST", url, data=querystring)
+        response = requests.request("POST", url, data=querystring)
     
-        # response_json = response.json()
+        response_json = response.json()
 
-        response_json = json.loads("{\"error\":{\"message\":\"Too many requests\"}}")
+        # response_json = json.loads("{\"error\":{\"message\":\"Too many requests\"}}")
 
         if "error" in response_json:
             error_message = response_json["error"]["message"]
