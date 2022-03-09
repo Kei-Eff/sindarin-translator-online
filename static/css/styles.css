@@ -1,4 +1,35 @@
+@font-face {
+    font-family: 'Tengwar Cursive';
+    src: url('../fonts/TengwarCursive.woff2') format('woff2'),
+        url('../fonts/TengwarCursive.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+}
+
 button {
     width: 50%;
 }
 
+.tengwar {
+    font-family: 'Tengwar Cursive';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 3em;
+}
+
+nav {
+    margin: 0 auto;
+    width: auto;
+    justify-content: center;
+}

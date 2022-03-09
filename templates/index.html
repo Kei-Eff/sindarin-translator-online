@@ -1,63 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+    {% block content %}
 
-<head>
-    <title>
-        Sindarin Translator Online
-    </title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
-    <link href="../static/css/styles.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
-</head>
-
-<body>
-    <main class="container">
+        {% if page_data.error_message | length > 0 %}
         <div>
-            <h1>Sindarin Translator Online</h1>
+            <p>
+                {{ page_data.error_message }}
+            </p>
         </div>
+        {% endif %}
 
-        {% block content %}
+        <div>
+            <form action="/" method="POST">
+                <label for="msg">Message to Translate:</label>
+                <textarea id="msg" name="message">{{ page_data.message }}</textarea>
+                <button type="submit">Translate</button>
+            </form>
 
-            {% if page_data.error_message | length > 0 %}
+            {% if page_data.translated_message | length > 0 %}
+            <div>
+                <p class="tengwar">
+                    {{ page_data.translated_message }}
+                </p>
+            </div>
             <div>
                 <p>
-                    {{ page_data.error_message }}
+                    {{ page_data.translated_message }}
                 </p>
             </div>
             {% endif %}
+        </div>
 
-            <div>
-                <form action="/" method="POST">
-                    <label for="msg">Message to Translate:</label>
-                    <textarea id="msg" name="message">{{ page_data.message }}</textarea>
-                    <button type="submit">Translate</button>
-                </form>
-
-                {% if page_data.translated_message | length > 0 %}
-                <div>
-                    <p>
-                        {{ page_data.translated_message }}
-                    </p>
-                </div>
-                {% endif %}
-            </div>
-
-        {% endblock %}
-
-    </main>
-</body>
-
-<footer>
-    <nav>
-        <ul>
-            <li><a href="#">Github</a></li>
-            <li><a href="#">LinkedIn</a></li>
-        </ul>
-    </nav>
-</footer>
-
-
-
-</html>
+    {% endblock %}
