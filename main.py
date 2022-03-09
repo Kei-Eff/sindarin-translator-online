@@ -44,4 +44,9 @@ def create_app():
 
             return render_template("index.html", page_data=data)
 
+
+    @app.route("/about", methods=["GET"])
+    def get_about_page():
+            return render_template("about.html")
+
     return app
