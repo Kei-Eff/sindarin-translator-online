@@ -160,6 +160,12 @@ Android (Samsung Galaxy S20 Ultra)
 
 ![Android screen size - 9 March 2022](./docs/img/milestones/LiveSiteTest_Android_09.03.2022a.png)
 
+### 10 March 2022
+
+Added error handling for empty strings (to prevent API calls):
+
+![Empty message error handling - 10 March 2022](./docs/img/milestones/EmptyMessageError_10.03.2022a.png)
+
 
 
 ---

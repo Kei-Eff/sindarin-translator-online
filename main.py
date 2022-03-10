@@ -12,10 +12,20 @@ def create_app():
         if request.method == "GET":
             return render_template("index.html", page_data={})
 
+        message = request.form["message"]
+
+        if message.isspace() or len(message) == 0:
+            data = {
+                "error_message": "Please enter message to translate"
+            }
+
+            return render_template("index.html", page_data=data)
+
+
         url = "https://api.funtranslations.com/translate/sindarin.json"
     
         querystring = {
-            "text": request.form["message"]
+            "text": message
         }
 
         response = requests.request("POST", url, data=querystring)
