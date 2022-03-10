@@ -96,27 +96,70 @@ Updated tech stack and app direction; Trello tasks updated with dates, new list 
 Readme updates; created `Table` in _Amazon DynamoDB_:
 ![Trello Board at 8 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_08.03.2022a.png)
 
+### 9 March 2022
+
+Flask app running on _EC2_:
+
+![Trello Board at 9 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_09.03.2022a.png)
+
 
 ---
 
 
-## Testing Progress
+## Milestones and Testing
 
 ### 4 March 2022
 
 API Gateway; and Lambda API endpoint testing:
 
-![Testing API Gateway; 4 March 2022](./docs/img/API_Gateway_Testing_04.03.2022a.png)
+![Testing API Gateway - 4 March 2022](./docs/img/milestones/API_Gateway_Testing_04.03.2022a.png)
 
-![Testing API Gateway; 4 March 2022](./docs/img/API_Gateway_Testing_04.03.2022b.png)
+![Testing API Gateway - 4 March 2022](./docs/img/milestones/API_Gateway_Testing_04.03.2022b.png)
 
-![Testing API Gateway; 4 March 2022](./docs/img/Lambda_Testing_04.03.2022a.png)
+![Testing API Gateway - 4 March 2022](./docs/img/milestones/Lambda_Testing_04.03.2022a.png)
 
 ### 8 March 2022
 
 Testing API Error Message on page:
 
-![Testing API error messages; 8 March 2022](./docs/img/ErrorTesting_SindarinAPI_08.03.2022a.png)
+![Testing API error messages - 8 March 2022](./docs/img/milestones/ErrorTesting_SindarinAPI_08.03.2022a.png)
+
+### 9 March 2022
+
+Working _"Tengwar"_ message output. Added 'About' page, with site credits:
+
+![Tengwar Output and About Page - 9 March 2022](./docs/img/milestones/Added_About_Page_09.03.2022.png)
+
+![Tengwar Output - 9 March 2022](./docs/img/milestones/TengwarFont_Working_09.03.2022.png)
+
+Live Site Tests:
+
+Chrome
+
+![Live on Chrome Browser - 9 March 2022](./docs/img/milestones/LiveSiteTest_Chrome_09.03.2022a.png)
+
+![Live on Chrome Browser - 9 March 2022](./docs/img/milestones/LiveSiteTest_Chrome_09.03.2022b.png)
+
+![Live About Page on Chrome Browser - 9 March 2022](./docs/img/milestones/LiveSiteTest_AboutPage_09.03.2022a.png)
+
+Firefox
+
+![Live on Firefox Browser - 9 March 2022](./docs/img/milestones/LiveSiteTest_Firefox_09.03.2022a.png)
+
+![Live on Firefox Browser - 9 March 2022](./docs/img/milestones/LiveSiteTest_Firefox_09.03.2022b.png)
+
+Tablet (iPad Air)
+
+![iPad screen size - 9 March 2022](./docs/img/milestones/LiveSiteTest_Tablet_09.03.2022a.png)
+
+iPhone (12 Pro)
+
+![iPhone screen size - 9 March 2022](./docs/img/milestones/LiveSiteTest_iPhone_09.03.2022a.png)
+
+Android (Samsung Galaxy S20 Ultra)
+
+![Android screen size - 9 March 2022](./docs/img/milestones/LiveSiteTest_Android_09.03.2022a.png)
+
 
 
 ---
