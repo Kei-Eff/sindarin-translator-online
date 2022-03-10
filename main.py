@@ -1,10 +1,17 @@
-import json
 import requests
 from flask import Flask, render_template, request
+from translation_cache import Cache
 
 def create_app():
 
     app = Flask(__name__)
+    cache = Cache()
+
+    # testing DynamoDB
+    # app.logger.info(cache.print_table())
+    # app.logger.info(cache.get_item('friend'))
+    # cache.save_item('friend', 'mellon')
+    # app.logger.info(cache.get_item('friend'))
 
     @app.route("/", methods=["GET", "POST"])
     def translate():
@@ -12,6 +19,7 @@ def create_app():
         if request.method == "GET":
             return render_template("index.html", page_data={})
 
+        # Check for null or whitespace
         message = request.form["message"]
 
         if message.isspace() or len(message) == 0:
@@ -21,7 +29,20 @@ def create_app():
 
             return render_template("index.html", page_data=data)
 
+        # Check cache
+        item = cache.get_item(message)
+        if item is not None:
+            app.logger.info('Treebeard: A hit! A fine hit!')
 
+            data = {
+                "message": message,
+                "translated_message": item['translation']
+            }
+
+            return render_template("index.html", page_data=data)
+
+        # Call API
+        app.logger.info(f"'{message}' not found, calling API")
         url = "https://api.funtranslations.com/translate/sindarin.json"
     
         querystring = {
@@ -32,8 +53,7 @@ def create_app():
     
         response_json = response.json()
 
-        # response_json = json.loads("{\"error\":{\"message\":\"Too many requests\"}}")
-
+        # Render error response
         if "error" in response_json:
             error_message = response_json["error"]["message"]
             
@@ -42,17 +62,22 @@ def create_app():
             }
 
             return render_template("index.html", page_data=data)
-        else:
-            contents = response_json["contents"]
-            message = contents["text"]
-            translation = contents["translated"]
-            
-            data = {
-                "message": message,
-                "translated_message": translation
-            }
 
-            return render_template("index.html", page_data=data)
+        # Save response to cache
+        contents = response_json["contents"]
+        message = contents["text"]
+        translation = contents["translated"]
+        
+        cache.save_item(message, translation)
+        app.logger.info(f"Saved '{message}' to cache!")
+
+        # Render response
+        data = {
+            "message": message,
+            "translated_message": translation
+        }
+
+        return render_template("index.html", page_data=data)
 
 
     @app.route("/about", methods=["GET"])

@@ -10,7 +10,7 @@ ___N.B. Edited/updated from original prject and documentation [here](https://git
 
 ## Description
 
-_Sindarin Translator Online_ aims to provide a web interface for the terminal application I created in Term 2 (2021) for the CCC course (T2A3). You can find more details about that project [here](https://github.com/Kei-Eff/sindarin-translator-online).
+_Sindarin Translator Online_ aims to provide a web interface for the terminal application I created in Term 2 (2021) for the CCC course (T2A3). You can find more details about that project [here](https://github.com/Kei-Eff/sindarin-translator).
 
 Documentation and Development updates are available via Trello [here](https://trello.com/b/5FlPl44f/t4a2-sindarin-translator-online), along with screenshots below.
 
@@ -55,7 +55,6 @@ Documentation and Development updates are available via Trello [here](https://tr
 * Github
 * AWS Identity and Access Manager
 * AWS EC2
-* AWS Lambda
 * Amazon DynamoDB
 * AWS Parameter Store
 
