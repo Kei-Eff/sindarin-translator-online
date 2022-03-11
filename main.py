@@ -2,19 +2,35 @@ import requests
 from flask import Flask, render_template, request
 from translation_cache import Cache
 
-def create_app():
 
+def create_app():
+    """
+    Creates and returns a Flask application instance.
+
+    Returns:
+        A Flask object
+    """
     app = Flask(__name__)
     cache = Cache()
 
-    # testing DynamoDB
-    # app.logger.info(cache.print_table())
-    # app.logger.info(cache.get_item('friend'))
-    # cache.save_item('friend', 'mellon')
-    # app.logger.info(cache.get_item('friend'))
 
     @app.route("/", methods=["GET", "POST"])
     def translate():
+        """
+        The translation endpoint.
+
+        GET:
+            Displays the index page.
+
+        POST:
+            Translates the text in the form request body.
+            Checks cache for existing translations.
+            Calls API to translate the given text, if not present in cache.
+            Saves new translations to cache.
+
+        Returns:
+            The index page.
+        """
 
         if request.method == "GET":
             return render_template("index.html", page_data={})
@@ -79,9 +95,15 @@ def create_app():
 
         return render_template("index.html", page_data=data)
 
-
+    # Go to 'About' page endpoint
     @app.route("/about", methods=["GET"])
     def get_about_page():
-            return render_template("about.html")
+        """
+        The about endpoint.
+
+        Returns:
+            The about page.
+        """
+        return render_template("about.html")
 
     return app

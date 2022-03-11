@@ -101,6 +101,20 @@ Flask app running on _EC2_:
 
 ![Trello Board at 9 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_09.03.2022a.png)
 
+### 10 March 2022
+
+Set up DynamoDB connection + caching:
+
+![Trello Board at 10 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_10.03.2022a.png)
+
+### 11 March 2022
+
+AWS Parameter Store work + Python `unittest`:
+
+![Trello Board at 11 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_11.03.2022a.png)
+
+
+
 
 ---
 
