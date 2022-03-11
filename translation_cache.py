@@ -5,8 +5,10 @@ class Cache:
     """
     Class that stores the translation of a word in a DynamoDB table.
     """
-    def __init__(self):
-        dynamodb = boto3.resource('dynamodb')
+    def __init__(self, dynamodb=None):
+        if dynamodb is None:
+            dynamodb = boto3.resource('dynamodb')
+            
         self.table = dynamodb.Table('SindarinCache')
 
 
@@ -20,6 +22,8 @@ class Cache:
         Returns:
             A dictionary of the item that was retrieved from the DynamoDB table.
         """
+
+        # Force lowercase keys
         response = self.table.get_item(
             Key={
                 'text': text.lower()
