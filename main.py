@@ -60,13 +60,13 @@ def create_app():
             return render_template("index.html", page_data=data)
 
         # Call API
-        app.logger.info(f"'{message}' not found, calling API")
+        app.logger.info(f"'{message}' not found, calling API preciousss")
         url = "https://api.funtranslations.com/translate/sindarin.json"
 
         headers = None
 
         if api_key is not None:
-            app.logger.info('Using API key')
+            app.logger.info('Using API key.')
             headers = {
                 'X-Funtranslations-Api-Secret': api_key
             }

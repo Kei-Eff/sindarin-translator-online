@@ -14,6 +14,8 @@ _Sindarin Translator Online_ aims to provide a web interface for the terminal ap
 
 Documentation and Development updates are available via Trello [here](https://trello.com/b/5FlPl44f/t4a2-sindarin-translator-online), along with screenshots below.
 
+Website will be hosted on `Amazon EC2`; built with `Python` using `Flask` web framework. Frontend is `HTML5` with `Pico.css` framework. `Amazon DynamoDB` will be used as a cache for translations, with a 24-hour _Time-To-Live (TTL)_ setting. `AWS IAM` and `AWS Parameter Store` are used for account management and secret key storage, respectively. Version control is handled by `Github`.
+
 <br>
 
 
@@ -22,7 +24,7 @@ Documentation and Development updates are available via Trello [here](https://tr
 * English-to-Sindarin (Tolkien _Elvish_) translations
 * Easy to use, responsive website
 * Minimal design: text in, text out
-* Cache for most requested translations (to limit API calls)
+* Cache for recently requested translations (to limit API calls)
 
 ## Future Improvements/Additional Features
 
@@ -57,6 +59,28 @@ Documentation and Development updates are available via Trello [here](https://tr
 * AWS EC2
 * Amazon DynamoDB
 * AWS Parameter Store
+
+<br>
+
+
+## Dataflow Diagram
+
+Dataflow Diagram still reflects dataflow, per Part A of assignment:
+
+![STO Dataflow Diagram](./docs/img/sto_dataflow_diagram_v2.png)
+
+PDF version available [here](https://drive.google.com/file/d/12M_AjIVeAlF6yyiZiKg_ZUP8SYS7ouDh/view?usp=sharing).
+
+<br>
+
+
+## Application Architecture Diagram
+
+Updated Application Architecture Diagram to reflect changes to tech stack and deployment method:
+
+![STO Application Architecture Diagram; current as at 11.03.2022](./docs/img/sto_app_architecture_v2.png)
+
+PDF version available [here](https://drive.google.com/file/d/1odDpjlFZMSXDsTBObDBD38MtVnnjkr5f/view?usp=sharing)
 
 <br>
 
@@ -113,7 +137,9 @@ AWS Parameter Store work + Python `unittest`:
 
 ![Trello Board at 11 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_11.03.2022a.png)
 
+Adding final touches, deploying to EC2:
 
+![Trello Board at 11 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_11.03.2022b.png)
 
 
 ---
@@ -131,11 +157,13 @@ API Gateway; and Lambda API endpoint testing:
 
 ![Testing API Gateway - 4 March 2022](./docs/img/milestones/Lambda_Testing_04.03.2022a.png)
 
+
 ### 8 March 2022
 
 Testing API Error Message on page:
 
 ![Testing API error messages - 8 March 2022](./docs/img/milestones/ErrorTesting_SindarinAPI_08.03.2022a.png)
+
 
 ### 9 March 2022
 
@@ -173,12 +201,41 @@ Android (Samsung Galaxy S20 Ultra)
 
 ![Android screen size - 9 March 2022](./docs/img/milestones/LiveSiteTest_Android_09.03.2022a.png)
 
+
 ### 10 March 2022
 
 Added error handling for empty strings (to prevent API calls):
 
 ![Empty message error handling - 10 March 2022](./docs/img/milestones/EmptyMessageError_10.03.2022a.png)
 
+Testing DynamoDB connection:
+
+![DynamoDB connection test](./docs/img/milestones/DynamoDB_Test_Connection_10.03.2022a.png)
+
+![DynamoDB connection test](./docs/img/milestones/DynamoDB_Test_Connection_10.03.2022b.png)
+
+Using `Flask` `app.logger` to check connections via terminal:
+
+![Flask app logger](./docs/img/milestones/DynamoDB_Test_FlaskAppLogger_10.03.2022a.png)
+
+Successful DynamoDB tests:
+
+![DynamoDB test](./docs/img/milestones/DynamoDB_Test_Success_10.03.2022a.png)
+
+![DynamoDB test](./docs/img/milestones/DynamoDB_Test_Success_10.03.2022c.png)
+
+![DynamoDB test](./docs/img/milestones/DynamoDB_Test_Success_10.03.2022c.png)
+
+
+### 11 March 2022
+
+Unittest using `boto3` + `moto` ([moto repo](https://github.com/spulec/moto)) package to mock DynamoDB connection:
+
+![Testing cache connection](./docs/img/milestones/Cache_Unittest_11.03.2022a.png)
+
+Manual testing new messages + `app.logger` for triggering API calls, then cache results:
+
+![Testing API and cache calls](./docs/img/milestones/Testing_API_Call_Caching_11.03.2022a.png)
 
 
 ---
