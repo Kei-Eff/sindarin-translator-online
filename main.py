@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, render_template, request
 from translation_cache import Cache
+from app_secrets import Secrets
 
 
 def create_app():
@@ -12,7 +13,10 @@ def create_app():
     """
     app = Flask(__name__)
     cache = Cache()
+    secrets = Secrets()
 
+    # Get API Key from Parameter Store
+    api_key = secrets.get_api_key()
 
     @app.route("/", methods=["GET", "POST"])
     def translate():
@@ -57,15 +61,25 @@ def create_app():
 
             return render_template("index.html", page_data=data)
 
+        
         # Call API
         app.logger.info(f"'{message}' not found, calling API")
         url = "https://api.funtranslations.com/translate/sindarin.json"
+
+        headers = None
+
+        if api_key is not None:
+            app.logger.info('Using API key')
+            headers = {
+                'X-Funtranslations-Api-Secret': api_key
+            }
     
         querystring = {
             "text": message
         }
 
-        response = requests.request("POST", url, data=querystring)
+        response = requests.request("POST", url, data=querystring,
+        headers=headers)
     
         response_json = response.json()
 
