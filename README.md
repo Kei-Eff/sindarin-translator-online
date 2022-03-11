@@ -65,7 +65,7 @@ Website will be hosted on `Amazon EC2`; built with `Python` using `Flask` web fr
 
 ## Dataflow Diagram
 
-Dataflow Diagram still reflects dataflow, per Part A of assignment:
+Dataflow Diagram still reflects current dataflow, per Part A of assignment:
 
 ![STO Dataflow Diagram](./docs/img/sto_dataflow_diagram_v2.png)
 
@@ -100,6 +100,7 @@ Priority labels as follow:
     * CRITICAL
     * Postponed
 
+
 ### 1 March 2022
 
 Tackling page layout:
@@ -108,16 +109,19 @@ Tackling page layout:
 
 ___Trello highlights between 1-6 March can be found in the original [project repo](https://github.com/Kei-Eff/T4A2_Final).___
 
+
 ### 7 March 2022
 
 Updated tech stack and app direction; Trello tasks updated with dates, new list and labels (for "Postponed" tasks). No longer serverless due to time constraints. Moving back to `Flask` on _EC2_ deployment:
 
 ![Trello Board at 7 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_07.03.2022a.png)
 
+
 ### 8 March 2022
 
 Readme updates; created `Table` in _Amazon DynamoDB_:
 ![Trello Board at 8 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_08.03.2022a.png)
+
 
 ### 9 March 2022
 
@@ -125,11 +129,13 @@ Flask app running on _EC2_:
 
 ![Trello Board at 9 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_09.03.2022a.png)
 
+
 ### 10 March 2022
 
 Set up DynamoDB connection + caching:
 
 ![Trello Board at 10 March 2022 - Task updates](./docs/img/trello/mar_2022/Trello_10.03.2022a.png)
+
 
 ### 11 March 2022
 
