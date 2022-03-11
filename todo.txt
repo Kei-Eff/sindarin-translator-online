@@ -1,11 +1,2 @@
 * Parameter Store API Key [Nice to have]
 * AWS Configure
-
-* Unittest
-    * translation_cache
-        * Given a key that exists in the cache, cache should return an item.
-        * Given a key that does not exist in the cache, cache should return None.
-        * Given a key that exists in the cache, in lowercase; and message is sent in uppercase/titlecase, cache should return an item regardless of case.
-
-    * main
-        * 
