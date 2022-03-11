@@ -9,16 +9,21 @@ class TestTranslationCache(unittest.TestCase):
 
     # Setup test DynamoDB table
     def setUp(self) -> None:
-        self.dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-2')
+        self.dynamodb = boto3.resource(
+                            'dynamodb', region_name='ap-southeast-2')
         self.table = self.dynamodb.create_table(
             TableName='SindarinCache',
             KeySchema=[
-                {'AttributeName': 'text',
-                'KeyType': 'HASH'}
+                {
+                    'AttributeName': 'text',
+                    'KeyType': 'HASH'
+                }
             ],
             AttributeDefinitions=[
-                {'AttributeName': 'text',
-                'AttributeType': 'S'}
+                {
+                    'AttributeName': 'text',
+                    'AttributeType': 'S'
+                }
             ],
             ProvisionedThroughput={
                 'ReadCapacityUnits': 5,
@@ -44,9 +49,10 @@ class TestTranslationCache(unittest.TestCase):
         # Assert
         assert result['translation'] == 'mellon'
 
-
     def test_cache_hit_case_insensitive(self):
-        """Given a key that exists in the cache, in lowercase; and message is sent in uppercase/titlecase, cache should return an item regardless of case.
+        """Given a key that exists in the cache, in lowercase;
+        and message is sent in a different case,
+        cache should return an item regardless of case.
         """
         # Arrange
         self.table.put_item(
@@ -63,12 +69,11 @@ class TestTranslationCache(unittest.TestCase):
         # Assert
         assert result['translation'] == 'mellon'
 
-
     def test_cache_miss_returns_none(self):
         """Given a key that does not exist in the cache, cache should return None.
         """
         # Arrange
-        
+
         # Empty table
 
         # Act
@@ -76,4 +81,4 @@ class TestTranslationCache(unittest.TestCase):
         result = system_under_test.get_item('friend')
 
         # Assert
-        assert result == None
+        assert result is None

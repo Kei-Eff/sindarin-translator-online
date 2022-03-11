@@ -1,2 +1,0 @@
-* Parameter Store API Key [Nice to have]
-* AWS Configure

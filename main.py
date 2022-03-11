@@ -5,8 +5,7 @@ from app_secrets import Secrets
 
 
 def create_app():
-    """
-    Creates and returns a Flask application instance.
+    """Creates and returns a Flask application instance.
 
     Returns:
         A Flask object
@@ -20,8 +19,7 @@ def create_app():
 
     @app.route("/", methods=["GET", "POST"])
     def translate():
-        """
-        The translation endpoint.
+        """The translation endpoint.
 
         GET:
             Displays the index page.
@@ -61,7 +59,6 @@ def create_app():
 
             return render_template("index.html", page_data=data)
 
-        
         # Call API
         app.logger.info(f"'{message}' not found, calling API")
         url = "https://api.funtranslations.com/translate/sindarin.json"
@@ -73,20 +70,21 @@ def create_app():
             headers = {
                 'X-Funtranslations-Api-Secret': api_key
             }
-    
+
         querystring = {
             "text": message
         }
 
-        response = requests.request("POST", url, data=querystring,
-        headers=headers)
-    
+        response = requests.request("POST", url,
+                                    data=querystring,
+                                    headers=headers)
+
         response_json = response.json()
 
         # Render error response
         if "error" in response_json:
             error_message = response_json["error"]["message"]
-            
+
             data = {
                 "error_message": error_message
             }
@@ -97,7 +95,7 @@ def create_app():
         contents = response_json["contents"]
         message = contents["text"]
         translation = contents["translated"]
-        
+
         cache.save_item(message, translation)
         app.logger.info(f"Saved '{message}' to cache!")
 
@@ -112,8 +110,7 @@ def create_app():
     # Go to 'About' page endpoint
     @app.route("/about", methods=["GET"])
     def get_about_page():
-        """
-        The about endpoint.
+        """The about endpoint.
 
         Returns:
             The about page.
