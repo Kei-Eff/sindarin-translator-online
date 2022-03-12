@@ -2,11 +2,13 @@ CCC-2022 T4A2 - Full Stack Application - Karl Alberto
 
 ---
 
-___N.B. Edited/updated from original prject and documentation [here](https://github.com/Kei-Eff/T4A2_Final) due to shift in tech stack.___
+___N.B. Updated from original project [here](https://github.com/Kei-Eff/T4A2_Final) due to shift in tech stack.___
 
-# Sindarin Translator Online
+# [Sindarin Translator Online](http://sindarintranslator.com)
 
 ![Sindarin Translator Online title](./docs/img/sto_title.png)
+
+[Demo website here](http://sindarintranslator.com).
 
 ## Description
 
