@@ -10,11 +10,11 @@ ___N.B. Edited/updated from original prject and documentation [here](https://git
 
 ## Description
 
-_Sindarin Translator Online_ aims to provide a web interface for the terminal application I created in Term 2 (2021) for the CCC course (T2A3). You can find more details about that project [here](https://github.com/Kei-Eff/sindarin-translator).
+_Sindarin Translator Online_ is a web interface for the terminal application I created in Term 2 (2021) for the CCC course (T2A3). You can find more details about that project [here](https://github.com/Kei-Eff/sindarin-translator).
 
 Documentation and Development updates are available via Trello [here](https://trello.com/b/5FlPl44f/t4a2-sindarin-translator-online), along with screenshots below.
 
-Website will be hosted on `Amazon EC2`; built with `Python` using `Flask` web framework. Frontend is `HTML5` with `Pico.css` framework. `Amazon DynamoDB` will be used as a cache for translations, with a 24-hour _Time-To-Live (TTL)_ setting. `AWS IAM` and `AWS Parameter Store` are used for account management and secret key storage, respectively. Version control is handled by `Github`.
+Website is hosted on `Amazon EC2`; built with `Python` using the `Flask` web framework. Frontend is `HTML5` with `Pico.css` framework. `Amazon DynamoDB` is used as a cache for translations, with a 24-hour _Time-To-Live (TTL)_ setting. `AWS IAM` and `AWS Parameter Store` are used for account management and secret key storage, respectively. Version control is handled by `Github`.
 
 <br>
 

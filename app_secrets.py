@@ -24,5 +24,6 @@ class Secrets:
             )
 
             api_key = response['Parameter']['Value']
+            return api_key
         except:
             pass

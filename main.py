@@ -1,4 +1,5 @@
 import requests
+import logging
 from flask import Flask, render_template, request
 from translation_cache import Cache
 from app_secrets import Secrets
@@ -13,6 +14,12 @@ def create_app():
     app = Flask(__name__)
     cache = Cache()
     secrets = Secrets()
+
+    # Set logger
+    if __name__ != '__main__':
+        gunicorn_logger = logging.getLogger('gunicorn.error')
+        app.logger.handlers = gunicorn_logger.handlers
+        app.logger.setLevel(gunicorn_logger.level)
 
     # Get API Key from Parameter Store
     api_key = secrets.get_api_key()
@@ -80,6 +87,8 @@ def create_app():
                                     headers=headers)
 
         response_json = response.json()
+
+        app.logger.info(f"API response: {response_json}")
 
         # Render error response
         if "error" in response_json:
